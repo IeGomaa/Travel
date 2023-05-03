@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminHomeController;
+use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +15,14 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
+    Route::controller(AdminHomeController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+    });
+
+    Route::controller(UserController::class)->group(function () {
+        Route::group(['prefix' => 'user', 'as' => 'user.'], function () {
+            Route::get('/', 'index')->name('index');
+        });
+    });
 });
