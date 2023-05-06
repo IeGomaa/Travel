@@ -41,6 +41,10 @@ class RepositoryServiceProvider extends ServiceProvider
             'App\Http\Interfaces\Admin\AdminFaqInterface',
             'App\Http\Repositories\Admin\AdminFaqRepository'
         );
+        $this->app->bind(
+            'App\Http\Interfaces\Admin\AdminContactInterface',
+            'App\Http\Repositories\Admin\AdminContactRepository'
+        );
     }
 
     /**

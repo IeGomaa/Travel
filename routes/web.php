@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminContactController;
 use App\Http\Controllers\Admin\AdminCountryController;
 use App\Http\Controllers\Admin\AdminCustomerController;
 use App\Http\Controllers\Admin\AdminFaqController;
@@ -85,6 +86,13 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
             Route::delete('/delete', 'delete')->name('delete');
             Route::post('/edit', 'edit')->name('edit');
             Route::put('/update', 'update')->name('update');
+        });
+    });
+
+    Route::controller(AdminContactController::class)->group(function () {
+        Route::group(['prefix' => 'contact', 'as' => 'contact.'], function () {
+            Route::get('/', 'index')->name('index');
+            Route::delete('/delete', 'delete')->name('delete');
         });
     });
 

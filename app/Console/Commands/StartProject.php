@@ -55,6 +55,8 @@ class StartProject extends Command
             'email' => $email,
             'password' => Hash::make($password)
         ]);
+
+        $this->info('User Account Was Created Successfully');
         return self::SUCCESS;
     }
 }

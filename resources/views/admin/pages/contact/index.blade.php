@@ -1,7 +1,7 @@
 @extends('admin.layouts.master')
 
 @section('title')
-    Customer | Index
+    Contact | Index
 @endsection
 
 @push('css')
@@ -25,7 +25,7 @@
                             <div class="widget-header">
                                 <div class="row">
                                     <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                                        <h4>Customer Table</h4>
+                                        <h4>Contact Table</h4>
                                     </div>
                                 </div>
                             </div>
@@ -37,24 +37,22 @@
                                             <th>Id</th>
                                             <th>Name</th>
                                             <th>Email</th>
-                                            <th>Image</th>
+                                            <th>Message</th>
                                             <th>Delete</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach($customers as $customer)
+                                            @foreach($contacts as $contact)
                                                 <tr>
-                                                    <td>{{ $customer->id }}</td>
-                                                    <td>{{ $customer->name }}</td>
-                                                    <td>{{ $customer->email }}</td>
+                                                    <td>{{ $contact->id }}</td>
+                                                    <td>{{ $contact->name }}</td>
+                                                    <td>{{ $contact->email }}</td>
+                                                    <td>{{ $contact->message }}</td>
                                                     <td>
-                                                        <img src="{{ asset($customer->image) }}" alt="customer image" width="50">
-                                                    </td>
-                                                    <td>
-                                                        <form action="{{ route('admin.customer.delete') }}" method="post">
+                                                        <form action="{{ route('admin.contact.delete') }}" method="post">
                                                             @method('DELETE')
                                                             @csrf
-                                                            <input type="hidden" name="id" value="{{ $customer->id }}">
+                                                            <input type="hidden" name="id" value="{{ $contact->id }}">
                                                             <input type="submit" value="Delete" class="btn btn-danger">
                                                         </form>
                                                     </td>
