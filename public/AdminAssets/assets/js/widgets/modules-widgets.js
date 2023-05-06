@@ -222,6 +222,14 @@ try {
           type: 'bar',
           toolbar: {
             show: false,
+          },
+          dropShadow: {
+              enabled: true,
+              top: 1,
+              left: 1,
+              blur: 2,
+              color: '#acb0c3',
+              opacity: 0.7,
           }
       },
       colors: ['#5c1ac3', '#ffbb44'],

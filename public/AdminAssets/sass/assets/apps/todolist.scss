@@ -4,13 +4,6 @@
 
 @import '../../base/base';    // Base Variables
 
-.main-container {
-    min-height: auto;
-}
-.layout-px-spacing {
-    min-height: auto!important;
-}
-
 /*----------Theme checkbox---------*/
 
 .new-control {
@@ -153,7 +146,7 @@
   .todoList-sidebar-scroll {
     position: relative;
     width: 100%;
-    height: calc(100vh - 377px);
+    height: calc(100vh - 318px);
   }
 
   .nav-pills {
@@ -292,7 +285,7 @@
   margin: auto;
   width: 100%;
   overflow: auto;
-  height: calc(100vh - 242px);
+  height: calc(100vh - 148px);
 }
 
 .todo-inbox .todo-item {
@@ -347,7 +340,7 @@
       overflow: hidden !important;
       text-overflow: ellipsis !important;
       white-space: nowrap !important;
-      max-width: calc(100vw - 760px);
+      max-width: calc(100vw - 730px);
     }
 
     &:hover .todo-text {

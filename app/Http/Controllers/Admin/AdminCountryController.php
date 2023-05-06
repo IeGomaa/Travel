@@ -7,6 +7,7 @@ use App\Http\Interfaces\Admin\AdminCountryInterface;
 use App\Http\Requests\Admin\Country\CheckCountryIdRequest;
 use App\Http\Requests\Admin\Country\CreateCountryRequest;
 use App\Http\Requests\Admin\Country\UpdateCountryRequest;
+use App\Http\Services\Country\CountryCheckImageService;
 use App\Http\Services\Country\CountryDeleteImageService;
 use App\Http\Services\Country\CountryUploadImageService;
 
@@ -43,7 +44,7 @@ class AdminCountryController extends Controller
         return $this->countryInterface->edit($request);
     }
 
-    public function update(UpdateCountryRequest $request, CountryUploadImageService $service)
+    public function update(UpdateCountryRequest $request, CountryCheckImageService $service)
     {
         return $this->countryInterface->update($request, $service);
     }

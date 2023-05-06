@@ -20,7 +20,7 @@
 <script src="{{ asset('AdminAssets/assets/js/dashboard/dash_2.js') }}"></script>
 <!-- BEGIN PAGE LEVEL PLUGINS/CUSTOM SCRIPTS -->
 @include('sweetalert::alert')
-
 @stack('js')
+
 </body>
 </html>

@@ -60,7 +60,7 @@ class UserRepository implements UserInterface
         $user->update([
             'name' => $request->name,
             'email' => $request->email,
-            'password' => Hash::make($request->password)
+            'password' => $user->password
         ]);
 
         Alert::toast('User Was Updated Successfully','success');

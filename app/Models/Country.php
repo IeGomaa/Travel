@@ -17,6 +17,6 @@ class Country extends Model
 
     public function getImageAttribute($value): string
     {
-        return 'uploaded/image/country/' . $value;
+        return 'uploaded/country/image/' . $value;
     }
 }

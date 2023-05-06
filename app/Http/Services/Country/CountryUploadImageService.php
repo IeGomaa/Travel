@@ -8,7 +8,7 @@ class CountryUploadImageService
     {
         $name = time() . '_country.' . $file->extension();
         if (!is_null($oldImage)) {
-            (!file_exists(public_path($oldImage))) ?: unlink(public_path($oldImage));
+            unlink(public_path($oldImage));
         }
         $file->move(public_path('uploaded/country/image'), $name);
         return $name;

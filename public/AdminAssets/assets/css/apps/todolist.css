@@ -8,12 +8,6 @@
 			@Import	Mixins
 	===============================
 */
-.main-container {
-  min-height: auto; }
-
-.layout-px-spacing {
-  min-height: auto !important; }
-
 /*----------Theme checkbox---------*/
 .new-control {
   position: relative;
@@ -125,7 +119,7 @@
   .tab-title .todoList-sidebar-scroll {
     position: relative;
     width: 100%;
-    height: calc(100vh - 377px); }
+    height: calc(100vh - 318px); }
   .tab-title .nav-pills .nav-link.active {
     background-color: transparent;
     color: #1b55e2;
@@ -218,7 +212,7 @@
   margin: auto;
   width: 100%;
   overflow: auto;
-  height: calc(100vh - 242px); }
+  height: calc(100vh - 148px); }
 
 .todo-inbox .todo-item {
   cursor: pointer;
@@ -254,7 +248,7 @@
     overflow: hidden !important;
     text-overflow: ellipsis !important;
     white-space: nowrap !important;
-    max-width: calc(100vw - 760px); }
+    max-width: calc(100vw - 730px); }
   .todo-inbox .todo-item .todo-item-inner:hover .todo-text {
     -webkit-transform: translateY(0) scale(1.01);
     transform: translateY(0) scale(1.01); }

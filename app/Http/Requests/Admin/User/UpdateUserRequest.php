@@ -26,8 +26,7 @@ class UpdateUserRequest extends FormRequest
         return [
             'id' => 'required|integer|exists:users',
             'name' => 'required|string|max:255',
-            'email' => 'required|email|max:255|unique:users,email,' . request('id'),
-            'password' => 'required|string|max:255'
+            'email' => 'required|email|max:255|unique:users,email,' . request('id')
         ];
     }
 }
