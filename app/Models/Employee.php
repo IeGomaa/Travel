@@ -13,6 +13,7 @@ class Employee extends Model
         'image',
         'email',
         'phone',
+        'password',
         'location',
         'position',
         'biography'

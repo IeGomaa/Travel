@@ -3,6 +3,12 @@
 namespace Database\Seeders;
 
 use App\Models\Contact;
+use App\Models\Country;
+use App\Models\Customer;
+use App\Models\Employee;
+use App\Models\Faq;
+use App\Models\Product;
+use App\Models\Slider;
 use App\Models\User;
 use Illuminate\Database\Seeder;
 
@@ -15,7 +21,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         User::factory(10)->create();
-         Contact::factory(10)->create();
+         User::factory()->create();
+         Contact::factory()->create();
+         Country::factory()->create();
+         Customer::factory()->create();
+         Employee::factory()->create();
+         Faq::factory()->create();
+         Product::factory()->create();
+         Slider::factory()->create();
     }
 }
