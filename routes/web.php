@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\AdminContactController;
 use App\Http\Controllers\Admin\AdminCountryController;
 use App\Http\Controllers\Admin\AdminCustomerController;
@@ -22,7 +23,22 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
+Route::controller(AdminAuthController::class)->group(function () {
+    Route::group(['prefix' => 'auth', 'as' => 'auth.', 'middleware' => 'check-auth'], function () {
+        Route::get('/', 'login_page')->name('index');
+        Route::post('/login', 'login')->name('login');
+    });
+});
+
+
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], function () {
+
+    Route::controller(AdminAuthController::class)->group(function () {
+        Route::group(['prefix' => 'auth', 'as' => 'auth.'], function () {
+            Route::get('/logout', 'logout')->name('logout');
+        });
+    });
+
     Route::controller(AdminHomeController::class)->group(function () {
         Route::get('/', 'index')->name('index');
     });
