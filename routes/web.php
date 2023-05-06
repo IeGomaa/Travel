@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\Admin\AdminCountryController;
 use App\Http\Controllers\Admin\AdminHomeController;
+use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\Admin\AdminSliderController;
 use App\Http\Controllers\Admin\UserController;
 use Illuminate\Support\Facades\Route;
@@ -46,6 +47,17 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
 
     Route::controller(AdminSliderController::class)->group(function () {
         Route::group(['prefix' => 'slider', 'as' => 'slider.'], function () {
+            Route::get('/', 'index')->name('index');
+            Route::get('/create', 'create')->name('create');
+            Route::post('/store', 'store')->name('store');
+            Route::delete('/delete', 'delete')->name('delete');
+            Route::post('/edit', 'edit')->name('edit');
+            Route::put('/update', 'update')->name('update');
+        });
+    });
+
+    Route::controller(AdminProductController::class)->group(function () {
+        Route::group(['prefix' => 'product', 'as' => 'product.'], function () {
             Route::get('/', 'index')->name('index');
             Route::get('/create', 'create')->name('create');
             Route::post('/store', 'store')->name('store');
