@@ -25,6 +25,10 @@ class RepositoryServiceProvider extends ServiceProvider
             'App\Http\Interfaces\Admin\AdminCountryInterface',
             'App\Http\Repositories\Admin\AdminCountryRepository'
         );
+        $this->app->bind(
+            'App\Http\Interfaces\Admin\AdminSliderInterface',
+            'App\Http\Repositories\Admin\AdminSliderRepository'
+        );
     }
 
     /**

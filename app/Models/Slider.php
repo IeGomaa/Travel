@@ -8,4 +8,14 @@ use Illuminate\Database\Eloquent\Model;
 class Slider extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'title',
+        'description',
+        'image'
+    ];
+
+    public function getImageAttribute($value): string
+    {
+        return 'uploaded/slider/image/' . $value;
+    }
 }
