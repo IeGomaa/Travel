@@ -15,7 +15,7 @@
 @section('content')
     <!--  BEGIN CONTENT AREA  -->
     <div id="content" class="main-content">
-        <div class="container">
+        <div class="container-fluid">
             <div class="container">
 
                 <div class="row layout-top-spacing">

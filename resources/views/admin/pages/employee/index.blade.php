@@ -1,7 +1,7 @@
 @extends('admin.layouts.master')
 
 @section('title')
-    Customer | Index
+    Employee | Index
 @endsection
 
 @push('css')
@@ -25,7 +25,10 @@
                             <div class="widget-header">
                                 <div class="row">
                                     <div class="col-xl-12 col-md-12 col-sm-12 col-12">
-                                        <h4>Customer Table</h4>
+                                        <h4>Employee Table</h4>
+                                        <a href="{{ route('admin.employee.create') }}">
+                                            <button class="btn btn-primary">Create Employee</button>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
@@ -37,25 +40,41 @@
                                             <th>Id</th>
                                             <th>Name</th>
                                             <th>Email</th>
+                                            <th>Phone</th>
                                             <th>Image</th>
+                                            <th>Location</th>
+                                            <th>Position</th>
+                                            <th>Biography</th>
                                             <th>Delete</th>
+                                            <th>Edit</th>
                                         </tr>
                                         </thead>
                                         <tbody>
-                                            @foreach($customers as $customer)
+                                            @foreach($employees as $employee)
                                                 <tr>
-                                                    <td>{{ $customer->id }}</td>
-                                                    <td>{{ $customer->name }}</td>
-                                                    <td>{{ $customer->email }}</td>
+                                                    <td>{{ $employee->id }}</td>
+                                                    <td>{{ $employee->name }}</td>
+                                                    <td>{{ $employee->email }}</td>
+                                                    <td>{{ $employee->phone }}</td>
                                                     <td>
-                                                        <img src="{{ asset($customer->image) }}" alt="customer image" width="50">
+                                                        <img src="{{ asset($employee->image) }}" alt="employee image" width="50">
                                                     </td>
+                                                    <td>{{ $employee->location }}</td>
+                                                    <td>{{ $employee->position }}</td>
+                                                    <td>{{ $employee->biography }}</td>
                                                     <td>
-                                                        <form action="{{ route('admin.customer.delete') }}" method="post">
+                                                        <form action="{{ route('admin.employee.delete') }}" method="post">
                                                             @method('DELETE')
                                                             @csrf
-                                                            <input type="hidden" name="id" value="{{ $customer->id }}">
+                                                            <input type="hidden" name="id" value="{{ $employee->id }}">
                                                             <input type="submit" value="Delete" class="btn btn-danger">
+                                                        </form>
+                                                    </td>
+                                                    <td>
+                                                        <form action="{{ route('admin.employee.edit') }}" method="post">
+                                                            @csrf
+                                                            <input type="hidden" name="id" value="{{ $employee->id }}">
+                                                            <input type="submit" value="Edit" class="btn btn-warning">
                                                         </form>
                                                     </td>
                                                 </tr>

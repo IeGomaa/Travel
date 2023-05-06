@@ -16,7 +16,7 @@ class CreateTravelTypesTable extends Migration
         Schema::create('travel_types', function (Blueprint $table) {
             $table->id();
             $table->string('type');
-            $table->string('image');
+            $table->string('svg');
             $table->timestamps();
         });
     }

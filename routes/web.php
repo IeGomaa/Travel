@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\AdminContactController;
 use App\Http\Controllers\Admin\AdminCountryController;
 use App\Http\Controllers\Admin\AdminCustomerController;
+use App\Http\Controllers\Admin\AdminEmployeeController;
 use App\Http\Controllers\Admin\AdminFaqController;
 use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\AdminProductController;
@@ -109,6 +110,17 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
         Route::group(['prefix' => 'contact', 'as' => 'contact.'], function () {
             Route::get('/', 'index')->name('index');
             Route::delete('/delete', 'delete')->name('delete');
+        });
+    });
+
+    Route::controller(AdminEmployeeController::class)->group(function () {
+        Route::group(['prefix' => 'employee', 'as' => 'employee.'], function () {
+            Route::get('/', 'index')->name('index');
+            Route::get('/create', 'create')->name('create');
+            Route::post('/store', 'store')->name('store');
+            Route::delete('/delete', 'delete')->name('delete');
+            Route::post('/edit', 'edit')->name('edit');
+            Route::put('/update', 'update')->name('update');
         });
     });
 

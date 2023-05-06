@@ -18,6 +18,7 @@ class CreateEmployeesTable extends Migration
             $table->string('image');
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('password');
             $table->string('phone')->unique();
             $table->mediumText('location');
             $table->enum('position', ['developer', 'designer', 'hr', 'worker', 'manager', 'driver']);
