@@ -26,6 +26,7 @@ class CreateToursTable extends Migration
             $table->string('name');
             $table->string('icon');
             $table->foreignId('country_id')->constrained()->cascadeOnDelete();
+            $table->foreignId('travel_type_id')->constrained()->cascadeOnDelete();
             $table->timestamps();
         });
     }

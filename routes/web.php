@@ -1,10 +1,13 @@
 <?php
 
 use App\Http\Controllers\Admin\AdminCountryController;
+use App\Http\Controllers\Admin\AdminCustomerController;
+use App\Http\Controllers\Admin\AdminFaqController;
 use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\Admin\AdminSliderController;
 use App\Http\Controllers\Admin\UserController;
+use App\Http\Controllers\EndUser\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -67,4 +70,30 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
         });
     });
 
+    Route::controller(AdminCustomerController::class)->group(function () {
+        Route::group(['prefix' => 'customer', 'as' => 'customer.'], function () {
+            Route::get('/', 'index')->name('index');
+            Route::delete('/delete', 'delete')->name('delete');
+        });
+    });
+
+    Route::controller(AdminFaqController::class)->group(function () {
+        Route::group(['prefix' => 'faq', 'as' => 'faq.'], function () {
+            Route::get('/', 'index')->name('index');
+            Route::get('/create', 'create')->name('create');
+            Route::post('/store', 'store')->name('store');
+            Route::delete('/delete', 'delete')->name('delete');
+            Route::post('/edit', 'edit')->name('edit');
+            Route::put('/update', 'update')->name('update');
+        });
+    });
+
 });
+
+Route::group(['as' => 'endUser.'], function () {
+    Route::controller(HomeController::class)->group(function () {
+        Route::get('/', 'index')->name('index');
+    });
+});
+
+

@@ -52,7 +52,7 @@
                                                     <td>{{ $slider->title }}</td>
                                                     <td>{{ $slider->description }}</td>
                                                     <td>
-                                                        <img src="{{ asset($slider->image) }}" alt="country image" width="50">
+                                                        <img src="{{ asset($slider->image) }}" alt="slider image" width="50">
                                                     </td>
                                                     <td>
                                                         <form action="{{ route('admin.slider.delete') }}" method="post">
