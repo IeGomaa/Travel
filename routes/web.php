@@ -9,6 +9,7 @@ use App\Http\Controllers\Admin\AdminFaqController;
 use App\Http\Controllers\Admin\AdminHomeController;
 use App\Http\Controllers\Admin\AdminProductController;
 use App\Http\Controllers\Admin\AdminSliderController;
+use App\Http\Controllers\Admin\AdminTourController;
 use App\Http\Controllers\Admin\AdminTravelTypeController;
 use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\EndUser\HomeController;
@@ -127,6 +128,17 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
 
     Route::controller(AdminTravelTypeController::class)->group(function () {
         Route::group(['prefix' => 'travel', 'as' => 'travel.'], function () {
+            Route::get('/', 'index')->name('index');
+            Route::get('/create', 'create')->name('create');
+            Route::post('/store', 'store')->name('store');
+            Route::delete('/delete', 'delete')->name('delete');
+            Route::post('/edit', 'edit')->name('edit');
+            Route::put('/update', 'update')->name('update');
+        });
+    });
+
+    Route::controller(AdminTourController::class)->group(function () {
+        Route::group(['prefix' => 'tour', 'as' => 'tour.'], function () {
             Route::get('/', 'index')->name('index');
             Route::get('/create', 'create')->name('create');
             Route::post('/store', 'store')->name('store');

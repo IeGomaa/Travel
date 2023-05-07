@@ -43,9 +43,6 @@ class StartProject extends Command
         Artisan::call('migrate:fresh');
         $this->info('Migration Was Fresh');
 
-        Artisan::call('db:seed');
-        $this->info('Seeders Was Seeded');
-
         $name = $this->ask('Enter Your Name');
         $email = $this->ask('Enter Your Email');
         $password = $this->secret('Enter Your Password');

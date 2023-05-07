@@ -57,6 +57,10 @@ class RepositoryServiceProvider extends ServiceProvider
             'App\Http\Interfaces\Admin\AdminTravelTypeInterface',
             'App\Http\Repositories\Admin\AdminTravelTypeRepository'
         );
+        $this->app->bind(
+            'App\Http\Interfaces\Admin\AdminTourInterface',
+            'App\Http\Repositories\Admin\AdminTourRepository'
+        );
     }
 
     /**

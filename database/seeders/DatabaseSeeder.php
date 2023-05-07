@@ -21,13 +21,13 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         User::factory()->create();
-         Contact::factory()->create();
-         Country::factory()->create();
-         Customer::factory()->create();
-         Employee::factory()->create();
-         Faq::factory()->create();
-         Product::factory()->create();
-         Slider::factory()->create();
+//         User::factory()->create();
+//         Contact::factory()->create();
+//         Country::factory()->create();
+//         Customer::factory()->create();
+//         Employee::factory()->create();
+//         Faq::factory()->create();
+//         Product::factory()->create();
+//         Slider::factory()->create();
     }
 }
