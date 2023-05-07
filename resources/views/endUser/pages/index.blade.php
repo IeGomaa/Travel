@@ -34,28 +34,21 @@
                 </div>
             </div>
             <div class="swiper-wrapper">
-                <div class="swiper-slide align-items-center d-flex slide-01 bg-overlay-black-2 header-position" style="background-image: url({{ asset('EndUserAssets/images/slider/home-2/01.jpg') }}); background-repeat: no-repeat; background-size: cover; background-position: center;">
-                    <div class="container">
-                        <div class="row justify-content-end">
-                            <div class="col-lg-12 position-relative">
-                                <h1 class="text-white title text-uppercase" data-swiper-animation="fadeInUp" data-duration="1.0s" data-delay="1.0s">Traveling</h1>
-                                <p class="text-white" data-swiper-animation="fadeInUp" data-duration="1.5s" data-delay="1.0s">Exclusive Holidays For The Single Traveler.</p>
-                                <a href="#" class="btn btn-primary" data-swiper-animation="fadeInUp" data-duration="1.5s" data-delay="1.0s">Read More</a>
+                @foreach($sliders as $slider)
+                    <div class="swiper-slide align-items-center d-flex slide-01 bg-overlay-black-2 header-position" style="background-image: url({{ asset($slider->image) }}); background-repeat: no-repeat; background-size: cover; background-position: center;">
+                        <div class="container">
+                            <div class="row justify-content-end">
+                                <div class="col-lg-12 position-relative">
+                                    <h1 class="text-white title text-uppercase" data-swiper-animation="fadeInUp" data-duration="1.0s" data-delay="1.0s">
+                                        {{ $slider->title }}</h1>
+                                    <p class="text-white" data-swiper-animation="fadeInUp" data-duration="1.5s" data-delay="1.0s">
+                                        {{ $slider->description }}</p>
+                                    <a href="#" class="btn btn-primary" data-swiper-animation="fadeInUp" data-duration="1.5s" data-delay="1.0s">Read More</a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="swiper-slide align-items-center d-flex slide-02 bg-overlay-black-4 header-position" style="background-image: url({{ asset('EndUserAssets/images/slider/home-2/02.jpg') }}); background-repeat: no-repeat; background-size: cover; background-position: center;">
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-lg-12 position-relative text-center">
-                                <h1 class="text-white title text-uppercase" data-swiper-animation="fadeInUp" data-duration="1.0s" data-delay="1.0s">Go Anywhere</h1>
-                                <p class="text-white" data-swiper-animation="fadeInUp" data-duration="1.5s" data-delay="1.0s">Traveling made it as easy as a walk in the park!</p>
-                                <a href="#" class="btn btn-primary" data-swiper-animation="fadeInUp" data-duration="1.5s" data-delay="1.0s">Read More</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
             </div>
             <!-- Pagination -->
             <div class="container">
@@ -156,302 +149,48 @@
                 <div class="col-lg-12 position-relative">
                     <div class="slider">
                         <div class="owl-carousel owl-nav-bottom-center" data-nav-dots="false" data-nav-arrow="true" data-items="4" data-xl-items="4" data-lg-items="4" data-md-items="3" data-sm-items="2" data-xs-items="1"  data-space="30" data-autoheight="true">
-                            <div class="item">
-                                <div class="listing-item">
-                                    <div class="listing-image bg-overlay-half-bottom">
-                                        <img class="img-fluid" src="{{ asset('EndUserAssets/images/listing/01.jpg') }}" alt="#">
-                                        <div class="listing-favourite">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                    </div>
-                                    <div class="listing-details">
-                                        <div class="listing-title d-flex justify-content-between">
-                                            <h5 class="mb-0"><a href="tour-detail.html" class="title mb-0">Tokyo</a></h5>
-                                            <div class="country-flags">
-                                                <img class="img-fluid shadow-sm" src="{{ asset('EndUserAssets/images/country-flags/01.jpg') }}" alt="#">
+                            @foreach($tours as $tour)
+                                <div class="item">
+                                    <div class="listing-item">
+                                        <div class="listing-image bg-overlay-half-bottom">
+                                            <img class="img-fluid" src="{{ asset($tour->image) }}" alt="#">
+                                            <div class="listing-favourite">
+                                                <i class="fa-regular fa-heart"></i>
                                             </div>
                                         </div>
-                                        <a href="#" class="listing-loaction"><i class="fa fa-location-dot"></i>  17-4, Kaminarimon 2-chome, Taito-ku, Tokyo  </a>
-                                        <div class="listing-rating d-flex justify-content-between">
-                                            <div class="d-flex">
-                                                <div class="date me-3">
-                                                    <i class="fa-regular fa-calendar-days me-2"></i><span> Day </span>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star me-1 text-yellow"></i><span>4.0 / 5</span>
+                                        <div class="listing-details">
+                                            <div class="listing-title d-flex justify-content-between">
+                                                <h5 class="mb-0"><a href="tour-detail.html" class="title mb-0">{{ $tour->country->name }}</a></h5>
+                                                <div class="country-flags">
+                                                    <img class="img-fluid shadow-sm" src="{{ asset($tour->country->image) }}" alt="#">
                                                 </div>
                                             </div>
-                                            <div class="price">
-                                                <span class="text-decoration-line-through">$899</span>$700
-                                            </div>
-                                        </div>
-                                        <div class="listing-info">
-                                            <img class="img-fluid" src="{{ asset('EndUserAssets/images/listing-brand/01.png') }}" alt="">
-                                            <p class="mb-0">The price is something not necessarily defined as financial.</p>
-                                        </div>
-                                        <a href="tour-detail.html" class="btn btn-link">See Details</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="listing-item">
-                                    <div class="listing-image bg-overlay-half-bottom">
-                                        <img class="img-fluid" src="{{ asset('EndUserAssets/images/listing/02.jpg') }}" alt="#">
-                                        <div class="listing-favourite">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                    </div>
-                                    <div class="listing-details">
-                                        <div class="listing-title d-flex justify-content-between">
-                                            <h5 class="mb-0"><a href="tour-detail.html" class="title mb-0">United Kingdom</a></h5>
-                                            <div class="country-flags">
-                                                <img class="img-fluid shadow-sm" src="{{ asset('EndUserAssets/images/country-flags/02.jpg') }}" alt="#">
-                                            </div>
-                                        </div>
-                                        <a href="#" class="listing-loaction"><i class="fa fa-location-dot"></i>  19 The Lindens,Grantham,England United Kingdom  </a>
-                                        <div class="listing-rating d-flex justify-content-between">
-                                            <div class="d-flex">
-                                                <div class="date me-3">
-                                                    <i class="fa-regular fa-calendar-days me-2"></i><span> Day </span>
+                                            <a href="#" class="listing-loaction"><i class="fa fa-location-dot"></i>  {{ $tour->location }}  </a>
+                                            <div class="listing-rating d-flex justify-content-between">
+                                                <div class="d-flex">
+                                                    <div class="date me-3">
+                                                        <i class="fa-regular fa-calendar-days me-2"></i><span> Days {{ $tour->number_of_days }} </span>
+                                                    </div>
+                                                    <div class="rating">
+                                                        <i class="fa-solid fa-star me-1 text-yellow"></i><span>{{ $tour->rate }} / 5</span>
+                                                    </div>
                                                 </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star me-1 text-yellow"></i><span>4.9 / 5</span>
+                                                <div class="price">
+                                                    @if($tour->discount != 0)
+                                                        <span class="text-decoration-line-through">${{ $tour->price }}</span>
+                                                    @endif
+                                                        ${{ $tour->price - $tour->discount }}
                                                 </div>
                                             </div>
-                                            <div class="price">
-                                                <span class="text-decoration-line-through"></span>$500
+                                            <div class="listing-info">
+                                                <img class="img-fluid" src="{{ asset($tour->icon) }}" alt="">
+                                                <p class="mb-0">{{ $tour->description }}</p>
                                             </div>
+                                            <a href="tour-detail.html" class="btn btn-link">See Details</a>
                                         </div>
-                                        <div class="listing-info">
-                                            <img class="img-fluid" src="{{ asset('EndUserAssets/images/listing-brand/02.png') }}" alt="">
-                                            <p class="mb-0">The bottom line is that we must shed the bad and replace with good beliefs.</p>
-                                        </div>
-                                        <a href="tour-detail.html" class="btn btn-link">See Details</a>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="item">
-                                <div class="listing-item">
-                                    <div class="listing-image bg-overlay-half-bottom">
-                                        <img class="img-fluid" src="{{ asset('EndUserAssets/images/listing/03.jpg') }}" alt="#">
-                                        <div class="listing-favourite listing-like">
-                                            <i class="fa-solid fa-heart"></i>
-                                        </div>
-                                    </div>
-                                    <div class="listing-details">
-                                        <div class="listing-title d-flex justify-content-between">
-                                            <h5 class="mb-0"><a href="tour-detail.html" class="title mb-0">Rio</a></h5>
-                                            <div class="country-flags">
-                                                <img class="img-fluid shadow-sm" src="{{ asset('EndUserAssets/images/country-flags/03.jpg') }}" alt="#">
-                                            </div>
-                                        </div>
-                                        <a href="#" class="listing-loaction"><i class="fa fa-location-dot"></i>  Rua americo Piola,13- Horto Santo Antonio,Rio de Janeiro SP Brasil  </a>
-                                        <div class="listing-rating d-flex justify-content-between">
-                                            <div class="d-flex">
-                                                <div class="date me-3">
-                                                    <i class="fa-regular fa-calendar-days me-2"></i><span> Day </span>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star me-1 text-yellow"></i><span>4.7 / 5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price">
-                                                <span class="text-decoration-line-through">$399</span>$350
-                                            </div>
-                                        </div>
-                                        <div class="listing-info">
-                                            <img class="img-fluid" src="{{ asset('EndUserAssets/images/listing-brand/03.png') }}" alt="">
-                                            <p class="mb-0">The price is something not necessarily defined as financial.</p>
-                                        </div>
-                                        <a href="tour-detail.html" class="btn btn-link">See Details</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="listing-item">
-                                    <div class="listing-image bg-overlay-half-bottom">
-                                        <img class="img-fluid" src="{{ asset('EndUserAssets/images/listing/04.jpg') }}" alt="#">
-                                        <div class="listing-favourite">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                    </div>
-                                    <div class="listing-details">
-                                        <div class="listing-title d-flex justify-content-between">
-                                            <h5 class="mb-0"><a href="tour-detail.html" class="title mb-0">Marsella</a></h5>
-                                            <div class="country-flags">
-                                                <img class="img-fluid shadow-sm" src="{{ asset('EndUserAssets/images/country-flags/04.jpg') }}" alt="#">
-                                            </div>
-                                        </div>
-                                        <a href="#" class="listing-loaction"><i class="fa fa-location-dot"></i>   25 Place De L Eglise,Marseille, France   </a>
-                                        <div class="listing-rating d-flex justify-content-between">
-                                            <div class="d-flex">
-                                                <div class="date me-3">
-                                                    <i class="fa-regular fa-calendar-days me-2"></i><span> Day </span>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star me-1 text-yellow"></i><span>4.3 / 5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price">
-                                                <span class="text-decoration-line-through"></span>$600
-                                            </div>
-                                        </div>
-                                        <div class="listing-info">
-                                            <img class="img-fluid" src="{{ asset('EndUserAssets/images/listing-brand/03.png') }}" alt="">
-                                            <p class="mb-0">We all carry a lot of baggage, thanks to our upbringing.</p>
-                                        </div>
-                                        <a href="tour-detail.html" class="btn btn-link">See Details</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="listing-item">
-                                    <div class="listing-image bg-overlay-half-bottom">
-                                        <img class="img-fluid" src="{{ asset('EndUserAssets/images/listing/05.jpg') }}" alt="#">
-                                        <div class="listing-favourite">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                    </div>
-                                    <div class="listing-details">
-                                        <div class="listing-title d-flex justify-content-between">
-                                            <h5 class="mb-0"><a href="tour-detail.html" class="title mb-0">United Kingdom</a></h5>
-                                            <div class="country-flags">
-                                                <img class="img-fluid shadow-sm" src="{{ asset('EndUserAssets/images/country-flags/05.jpg') }}" alt="#">
-                                            </div>
-                                        </div>
-                                        <a href="#" class="listing-loaction"><i class="fa fa-location-dot"></i> 19 The Lindens,Grantham,England United Kingdom </a>
-                                        <div class="listing-rating d-flex justify-content-between">
-                                            <div class="d-flex">
-                                                <div class="date me-3">
-                                                    <i class="fa-regular fa-calendar-days me-2"></i><span> Day </span>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star me-1 text-yellow"></i><span>4.9 / 5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price">
-                                                <span class="text-decoration-line-through">$899</span>$700
-                                            </div>
-                                        </div>
-                                        <div class="listing-info">
-                                            <img class="img-fluid" src="{{ asset('EndUserAssets/images/listing-brand/02.png') }}" alt="">
-                                            <p class="mb-0">The bottom line is that we must shed the bad and replace with good beliefs.</p>
-                                        </div>
-                                        <a href="tour-detail.html" class="btn btn-link">See Details</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="listing-item">
-                                    <div class="listing-image bg-overlay-half-bottom">
-                                        <img class="img-fluid" src="{{ asset('EndUserAssets/images/listing/03.jpg') }}" alt="#">
-                                        <div class="listing-favourite listing-like">
-                                            <i class="fa-solid fa-heart"></i>
-                                        </div>
-                                    </div>
-                                    <div class="listing-details">
-                                        <div class="listing-title d-flex justify-content-between">
-                                            <h5 class="mb-0"><a href="tour-detail.html" class="title mb-0">Rio</a></h5>
-                                            <div class="country-flags">
-                                                <img class="img-fluid shadow-sm" src="{{ asset('EndUserAssets/images/country-flags/03.jpg') }}" alt="#">
-                                            </div>
-                                        </div>
-                                        <a href="#" class="listing-loaction"><i class="fa fa-location-dot"></i> Rua americo Piola,13- Horto Santo Antonio,Rio de Janeiro SP Brasil </a>
-                                        <div class="listing-rating d-flex justify-content-between">
-                                            <div class="d-flex">
-                                                <div class="date me-3">
-                                                    <i class="fa-regular fa-calendar-days me-2"></i><span> Day </span>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star me-1 text-yellow"></i><span>4.7 / 5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price">
-                                                <span class="text-decoration-line-through">$399</span>$350
-                                            </div>
-                                        </div>
-                                        <div class="listing-info">
-                                            <img class="img-fluid" src="{{ asset('EndUserAssets/images/listing-brand/03.png') }}" alt="">
-                                            <p class="mb-0">The price is something not necessarily defined as financial.</p>
-                                        </div>
-                                        <a href="tour-detail.html" class="btn btn-link">See Details</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="listing-item">
-                                    <div class="listing-image bg-overlay-half-bottom">
-                                        <img class="img-fluid" src="{{ asset('EndUserAssets/images/listing/04.jpg') }}" alt="#">
-                                        <div class="listing-favourite">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                    </div>
-                                    <div class="listing-details">
-                                        <div class="listing-title d-flex justify-content-between">
-                                            <h5 class="mb-0"><a href="tour-detail.html" class="title mb-0">Marsella</a></h5>
-                                            <div class="country-flags">
-                                                <img class="img-fluid shadow-sm" src="{{ asset('EndUserAssets/images/country-flags/04.jpg') }}" alt="#">
-                                            </div>
-                                        </div>
-                                        <a href="#" class="listing-loaction"><i class="fa fa-location-dot"></i>  25 Place De L Eglise,Marseille, France  </a>
-                                        <div class="listing-rating d-flex justify-content-between">
-                                            <div class="d-flex">
-                                                <div class="date me-3">
-                                                    <i class="fa-regular fa-calendar-days me-2"></i><span> Day </span>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star me-1 text-yellow"></i><span>4.3 / 5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price">
-                                                <span class="text-decoration-line-through"></span>$600
-                                            </div>
-                                        </div>
-                                        <div class="listing-info">
-                                            <img class="img-fluid" src="{{ asset('EndUserAssets/images/listing-brand/03.png') }}" alt="">
-                                            <p class="mb-0">We all carry a lot of baggage, thanks to our upbringing.</p>
-                                        </div>
-                                        <a href="tour-detail.html" class="btn btn-link">See Details</a>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="item">
-                                <div class="listing-item">
-                                    <div class="listing-image bg-overlay-half-bottom">
-                                        <img class="img-fluid" src="{{ asset('EndUserAssets/images/listing/05.jpg') }}" alt="#">
-                                        <div class="listing-favourite">
-                                            <i class="fa-regular fa-heart"></i>
-                                        </div>
-                                    </div>
-                                    <div class="listing-details">
-                                        <div class="listing-title d-flex justify-content-between">
-                                            <h5 class="mb-0"><a href="tour-detail.html" class="title mb-0">United Kingdom</a></h5>
-                                            <div class="country-flags">
-                                                <img class="img-fluid shadow-sm" src="{{ asset('EndUserAssets/images/country-flags/05.jpg') }}" alt="#">
-                                            </div>
-                                        </div>
-                                        <a href="#" class="listing-loaction"><i class="fa fa-location-dot"></i> 19 The Lindens,Grantham,England United Kingdom </a>
-                                        <div class="listing-rating d-flex justify-content-between">
-                                            <div class="d-flex">
-                                                <div class="date me-3">
-                                                    <i class="fa-regular fa-calendar-days me-2"></i><span> Day </span>
-                                                </div>
-                                                <div class="rating">
-                                                    <i class="fa-solid fa-star me-1 text-yellow"></i><span>4.9 / 5</span>
-                                                </div>
-                                            </div>
-                                            <div class="price">
-                                                <span class="text-decoration-line-through">$899</span>$700
-                                            </div>
-                                        </div>
-                                        <div class="listing-info">
-                                            <img class="img-fluid" src="{{ asset('EndUserAssets/images/listing-brand/02.png') }}" alt="">
-                                            <p class="mb-0">The bottom line is that we must shed the bad and replace with good beliefs.</p>
-                                        </div>
-                                        <a href="tour-detail.html" class="btn btn-link">See Details</a>
-                                    </div>
-                                </div>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>
@@ -721,169 +460,62 @@
                 </div>
             </div>
             <div class="row mb-5">
-                <div class="col-lg-2 col-md-4 col-sm-6">
-                    <div class="feature-categories">
-                        <div class="icon">
-                            <object type="image/svg+xml" data="{{ asset('EndUserAssets/images/svg/beach.svg') }}" class="icon "></object>
+                @foreach($travelTypes as $travelType)
+                    <div class="col-lg-2 col-md-4 col-sm-6">
+                        <div class="feature-categories">
+                            <div class="icon">
+                                <object type="image/svg+xml" data="{{ asset($travelType->svg) }}" class="icon "></object>
+                            </div>
+                            <h6 class="mb-0 title"><a href="#"> {{ $travelType->type }} </a></h6>
                         </div>
-                        <h6 class="mb-0 title"><a href="#"> Beaches </a></h6>
                     </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-6">
-                    <div class="feature-categories">
-                        <div class="icon">
-                            <object type="image/svg+xml" data="{{ asset('EndUserAssets/images/svg/heritage.svg') }}" class="icon "></object>
-                        </div>
-                        <h6 class="mb-0 title"><a href="#"> Heritage </a></h6>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-6">
-                    <div class="feature-categories">
-                        <div class="icon">
-                            <object type="image/svg+xml" data="{{ asset('EndUserAssets/images/svg/family.svg') }}" class="icon "></object>
-                        </div>
-                        <h6 class="mb-0 title"><a href="#"> Family </a></h6>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-6">
-                    <div class="feature-categories">
-                        <div class="icon">
-                            <object type="image/svg+xml" data="{{ asset('EndUserAssets/images/svg/honeymoon.svg') }}" class="icon "></object>
-                        </div>
-                        <h6 class="mb-0 title"><a href="#"> Honeymoon </a></h6>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-6">
-                    <div class="feature-categories">
-                        <div class="icon">
-                            <object type="image/svg+xml" data="{{ asset('EndUserAssets/images/svg/adventure.svg') }}" class="icon "></object>
-                        </div>
-                        <h6 class="mb-0 title"><a href="#"> Adventure</a></h6>
-                    </div>
-                </div>
-                <div class="col-lg-2 col-md-4 col-sm-6">
-                    <div class="feature-categories">
-                        <div class="icon">
-                            <object type="image/svg+xml" data="{{ asset('EndUserAssets/images/svg/beaches.svg') }}" class="icon "></object>
-                        </div>
-                        <h6 class="mb-0 title"><a href="#"> Camping </a></h6>
-                    </div>
-                </div>
+                @endforeach
             </div>
             <div class="row">
                 <div class="col-md-12">
                     <div class="owl-carousel owl-nav-center feature-categories-2" data-nav-dots="false" data-nav-arrow="true" data-items="1" data-md-items="1" data-sm-items="1"  data-space="0" data-autoheight="true">
-                        <div class="item">
-                            <div class="listing-item listing-item-2">
-                                <div class="listing-image bg-overlay-half-bottom">
-                                    <img class="img-fluid" src="{{ asset('EndUserAssets/images/listing/01.jpg') }}" alt="#">
-                                    <div class="listing-favourite">
-                                        <i class="fa-regular fa-heart"></i>
-                                    </div>
-                                </div>
-                                <div class="listing-details">
-                                    <div class="listing-title d-flex justify-content-between">
-                                        <h5 class="mb-0"><a href="tour-detail.html" class="title mb-0">Tokyo</a></h5>
-                                        <div class="country-flags">
-                                            <img class="img-fluid shadow-sm" src="{{ asset('EndUserAssets/images/country-flags/01.jpg') }}" alt="#">
+                        @foreach($tours as $tour)
+                            <div class="item">
+                                <div class="listing-item listing-item-2">
+                                    <div class="listing-image bg-overlay-half-bottom">
+                                        <img class="img-fluid" src="{{ asset($tour->image) }}" alt="#">
+                                        <div class="listing-favourite">
+                                            <i class="fa-regular fa-heart"></i>
                                         </div>
                                     </div>
-                                    <div class="price">
-                                        <span class="text-decoration-line-through">$899</span>$700
-                                    </div>
-                                    <div class="listing-info">
-                                        <img class="img-fluid" src="{{ asset('EndUserAssets/images/listing-brand/01.png') }}" alt="">
-                                        <p class="mb-0">Quis ipsum suspendisse ultrices gravida risus com modo</p>
-                                    </div>
-                                    <div class="listing-rating d-flex justify-content-between">
-                                        <div class="d-flex">
-                                            <div class="date me-3">
-                                                <i class="fa-regular fa-calendar-days me-2"></i><span> Day </span>
-                                            </div>
-                                            <div class="rating">
-                                                <i class="fa-solid fa-star me-1 text-yellow"></i><span>4.3 / 5</span>
+                                    <div class="listing-details">
+                                        <div class="listing-title d-flex justify-content-between">
+                                            <h5 class="mb-0"><a href="tour-detail.html" class="title mb-0">{{ $tour->country->name }}</a></h5>
+                                            <div class="country-flags">
+                                                <img class="img-fluid shadow-sm" src="{{ asset($tour->country->image) }}" alt="#">
                                             </div>
                                         </div>
-                                    </div>
-                                    <a href="#" class="listing-loaction"><i class="fa fa-location-dot"></i> Red pagoda and cherry blossoms </a>
-                                    <a href="tour-detail.html" class="btn btn-link d-flex">See Details</a>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item">
-                            <div class="listing-item listing-item-2">
-                                <div class="listing-image bg-overlay-half-bottom">
-                                    <img class="img-fluid" src="{{ asset('EndUserAssets/images/listing/02.jpg') }}" alt="#">
-                                    <div class="listing-favourite">
-                                        <i class="fa-regular fa-heart"></i>
-                                    </div>
-                                </div>
-                                <div class="listing-details">
-                                    <div class="listing-title d-flex justify-content-between">
-                                        <h5 class="mb-0"><a href="tour-detail.html" class="title mb-0">United Kingdom</a></h5>
-                                        <div class="country-flags">
-                                            <img class="img-fluid shadow-sm" src="{{ asset('EndUserAssets/images/country-flags/02.jpg') }}" alt="#">
+                                        <div class="price">
+                                            @if($tour->discount != 0)
+                                                <span class="text-decoration-line-through">${{ $tour->price }}</span>
+                                            @endif
+                                            ${{ $tour->price - $tour->discount }}
                                         </div>
-                                    </div>
-                                    <div class="price">
-                                        <span class="text-decoration-line-through">$899</span>$700
-                                    </div>
-                                    <div class="listing-info">
-                                        <img class="img-fluid" src="{{ asset('EndUserAssets/images/listing-brand/01.png') }}" alt="">
-                                        <p class="mb-0">Quis ipsum suspendisse ultrices gravida risus com modo</p>
-                                    </div>
-                                    <div class="listing-rating d-flex justify-content-between">
-                                        <div class="d-flex">
-                                            <div class="date me-3">
-                                                <i class="fa-regular fa-calendar-days me-2"></i><span> Day </span>
-                                            </div>
-                                            <div class="rating">
-                                                <i class="fa-solid fa-star me-1 text-yellow"></i><span>4.3 / 5</span>
+                                        <div class="listing-info">
+                                            <img class="img-fluid" src="{{ asset($tour->icon) }}" alt="">
+                                            <p class="mb-0">{{ $tour->description }}</p>
+                                        </div>
+                                        <div class="listing-rating d-flex justify-content-between">
+                                            <div class="d-flex">
+                                                <div class="date me-3">
+                                                    <i class="fa-regular fa-calendar-days me-2"></i><span> Days {{ $tour->number_of_days }} </span>
+                                                </div>
+                                                <div class="rating">
+                                                    <i class="fa-solid fa-star me-1 text-yellow"></i><span>{{ $tour->rate }} / 5</span>
+                                                </div>
                                             </div>
                                         </div>
+                                        <a href="#" class="listing-loaction"><i class="fa fa-location-dot"></i> {{ $tour->location }} </a>
+                                        <a href="tour-detail.html" class="btn btn-link d-flex">See Details</a>
                                     </div>
-                                    <a href="#" class="listing-loaction"><i class="fa fa-location-dot"></i> Red pagoda and cherry blossoms </a>
-                                    <a href="tour-detail.html" class="btn btn-link d-flex">See Details</a>
                                 </div>
                             </div>
-                        </div>
-                        <div class="item">
-                            <div class="listing-item listing-item-2">
-                                <div class="listing-image bg-overlay-half-bottom">
-                                    <img class="img-fluid" src="{{ asset('EndUserAssets/images/listing/03.jpg') }}" alt="#">
-                                    <div class="listing-favourite">
-                                        <i class="fa-regular fa-heart"></i>
-                                    </div>
-                                </div>
-                                <div class="listing-details">
-                                    <div class="listing-title d-flex justify-content-between">
-                                        <h5 class="mb-0"><a href="tour-detail.html" class="title mb-0">Rio</a></h5>
-                                        <div class="country-flags">
-                                            <img class="img-fluid shadow-sm" src="{{ asset('EndUserAssets/images/country-flags/03.jpg') }}" alt="#">
-                                        </div>
-                                    </div>
-                                    <div class="price">
-                                        <span class="text-decoration-line-through">$899</span>$700
-                                    </div>
-                                    <div class="listing-info">
-                                        <img class="img-fluid" src="{{ asset('EndUserAssets/images/listing-brand/01.png') }}" alt="">
-                                        <p class="mb-0">Quis ipsum suspendisse ultrices gravida risus com modo</p>
-                                    </div>
-                                    <div class="listing-rating d-flex justify-content-between">
-                                        <div class="d-flex">
-                                            <div class="date me-3">
-                                                <i class="fa-regular fa-calendar-days me-2"></i><span> Day </span>
-                                            </div>
-                                            <div class="rating">
-                                                <i class="fa-solid fa-star me-1 text-yellow"></i><span>4.3 / 5</span>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <a href="#" class="listing-loaction"><i class="fa fa-location-dot"></i> Red pagoda and cherry blossoms </a>
-                                    <a href="tour-detail.html" class="btn btn-link d-flex">See Details</a>
-                                </div>
-                            </div>
-                        </div>
+                        @endforeach
                     </div>
                 </div>
             </div>

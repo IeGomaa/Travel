@@ -76,12 +76,12 @@
 
             <ul class="navbar-nav theme-brand flex-row  text-center">
                 <li class="nav-item theme-logo">
-                    <a href="index.html">
+                    <a href="{{ route('admin.index') }}">
                         <img src="{{ asset('AdminAssets/assets/img/90x90.jpg') }}" class="navbar-logo" alt="logo">
                     </a>
                 </li>
                 <li class="nav-item theme-text">
-                    <a href="index.html" class="nav-link"> CORK </a>
+                    <a href="{{ route('admin.index') }}" class="nav-link"> CORK </a>
                 </li>
             </ul>
 
@@ -108,14 +108,14 @@
                     </a>
                 </li>
 
-                <li class="menu">
-                    <a href="apps_todoList.html" aria-expanded="false" class="dropdown-toggle">
-                        <div class="">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>
-                            <span>Book</span>
-                        </div>
-                    </a>
-                </li>
+{{--                <li class="menu">--}}
+{{--                    <a href="apps_todoList.html" aria-expanded="false" class="dropdown-toggle">--}}
+{{--                        <div class="">--}}
+{{--                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-edit"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"></path><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"></path></svg>--}}
+{{--                            <span>Book</span>--}}
+{{--                        </div>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
 
                 <li class="menu">
                     <a href="{{ route('admin.faq.index') }}" aria-expanded="false" class="dropdown-toggle">
@@ -135,14 +135,14 @@
                     </a>
                 </li>
 
-                <li class="menu">
-                    <a href="apps_invoice.html" aria-expanded="false" class="dropdown-toggle">
-                        <div class="">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-dollar-sign"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>
-                            <span>Sales</span>
-                        </div>
-                    </a>
-                </li>
+{{--                <li class="menu">--}}
+{{--                    <a href="apps_invoice.html" aria-expanded="false" class="dropdown-toggle">--}}
+{{--                        <div class="">--}}
+{{--                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-dollar-sign"><line x1="12" y1="1" x2="12" y2="23"></line><path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path></svg>--}}
+{{--                            <span>Sales</span>--}}
+{{--                        </div>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
 
                 <li class="menu menu-heading">
                     <div class="heading"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-circle"><circle cx="12" cy="12" r="10"></circle></svg><span>USER INTERFACE</span></div>
@@ -188,32 +188,32 @@
                     <div class="heading"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-circle"><circle cx="12" cy="12" r="10"></circle></svg><span>TABLES AND FORMS</span></div>
                 </li>
 
-                <li class="menu">
-                    <a href="table_basic.html" aria-expanded="false" class="dropdown-toggle">
-                        <div class="">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layout"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>
-                            <span>Education</span>
-                        </div>
-                    </a>
-                </li>
+{{--                <li class="menu">--}}
+{{--                    <a href="table_basic.html" aria-expanded="false" class="dropdown-toggle">--}}
+{{--                        <div class="">--}}
+{{--                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layout"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><line x1="3" y1="9" x2="21" y2="9"></line><line x1="9" y1="21" x2="9" y2="9"></line></svg>--}}
+{{--                            <span>Education</span>--}}
+{{--                        </div>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
 
-                <li class="menu">
-                    <a href="#datatables" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <div class="">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>
-                            <span>Skills</span>
-                        </div>
-                    </a>
-                </li>
+{{--                <li class="menu">--}}
+{{--                    <a href="#datatables" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">--}}
+{{--                        <div class="">--}}
+{{--                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-layers"><polygon points="12 2 2 7 12 12 22 7 12 2"></polygon><polyline points="2 17 12 22 22 17"></polyline><polyline points="2 12 12 17 22 12"></polyline></svg>--}}
+{{--                            <span>Skills</span>--}}
+{{--                        </div>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
 
-                <li class="menu">
-                    <a href="#forms" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">
-                        <div class="">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clipboard"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>
-                            <span>Reviews</span>
-                        </div>
-                    </a>
-                </li>
+{{--                <li class="menu">--}}
+{{--                    <a href="#forms" data-toggle="collapse" aria-expanded="false" class="dropdown-toggle">--}}
+{{--                        <div class="">--}}
+{{--                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-clipboard"><path d="M16 4h2a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h2"></path><rect x="8" y="2" width="8" height="4" rx="1" ry="1"></rect></svg>--}}
+{{--                            <span>Reviews</span>--}}
+{{--                        </div>--}}
+{{--                    </a>--}}
+{{--                </li>--}}
 
                 <li class="menu menu-heading">
                     <div class="heading"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-circle"><circle cx="12" cy="12" r="10"></circle></svg><span>USER AND PAGES</span></div>
