@@ -17,7 +17,7 @@ class CountryFactory extends Factory
     {
         return [
             'name' => $this->faker->unique()->country,
-            'iso' => $this->faker->countryISOAlpha3,
+            'iso' => $this->faker->unique()->countryISOAlpha3,
             'code' => $this->faker->unique()->numberBetween(1, 100),
             'image' => UploadedFile::fake()->image('country')->move(public_path(self::PATH), time() . '_country.png')
         ];

@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AdminAuthController;
 use App\Http\Controllers\Admin\AdminContactController;
 use App\Http\Controllers\Admin\AdminCountryController;
 use App\Http\Controllers\Admin\AdminCustomerController;
+use App\Http\Controllers\Admin\AdminDestinationController;
 use App\Http\Controllers\Admin\AdminEmployeeController;
 use App\Http\Controllers\Admin\AdminFaqController;
 use App\Http\Controllers\Admin\AdminHomeController;
@@ -151,6 +152,17 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware' => 'auth'], fu
 
     Route::controller(AdminTestimonialController::class)->group(function () {
         Route::group(['prefix' => 'testimonial', 'as' => 'testimonial.'], function () {
+            Route::get('/', 'index')->name('index');
+            Route::get('/create', 'create')->name('create');
+            Route::post('/store', 'store')->name('store');
+            Route::delete('/delete', 'delete')->name('delete');
+            Route::post('/edit', 'edit')->name('edit');
+            Route::put('/update', 'update')->name('update');
+        });
+    });
+
+    Route::controller(AdminDestinationController::class)->group(function () {
+        Route::group(['prefix' => 'destination', 'as' => 'destination.'], function () {
             Route::get('/', 'index')->name('index');
             Route::get('/create', 'create')->name('create');
             Route::post('/store', 'store')->name('store');

@@ -23,7 +23,7 @@ class DatabaseSeeder extends Seeder
     {
 //         User::factory()->create();
 //         Contact::factory()->create();
-//         Country::factory()->create();
+         Country::factory(10)->create();
 //         Customer::factory(10)->create();
 //         Employee::factory()->create();
 //         Faq::factory()->create();

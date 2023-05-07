@@ -65,6 +65,10 @@ class RepositoryServiceProvider extends ServiceProvider
             'App\Http\Interfaces\Admin\AdminTestimonialInterface',
             'App\Http\Repositories\Admin\AdminTestimonialRepository'
         );
+        $this->app->bind(
+            'App\Http\Interfaces\Admin\AdminDestinationInterface',
+            'App\Http\Repositories\Admin\AdminDestinationRepository'
+        );
     }
 
     /**
