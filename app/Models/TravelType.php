@@ -8,4 +8,13 @@ use Illuminate\Database\Eloquent\Model;
 class TravelType extends Model
 {
     use HasFactory;
+    protected $fillable = [
+        'svg',
+        'type'
+    ];
+
+    public function getSvgAttribute($value): string
+    {
+        return 'uploaded/travel/svg/' . $value;
+    }
 }

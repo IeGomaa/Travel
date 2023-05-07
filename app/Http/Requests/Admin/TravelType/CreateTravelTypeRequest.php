@@ -11,9 +11,9 @@ class CreateTravelTypeRequest extends FormRequest
      *
      * @return bool
      */
-    public function authorize()
+    public function authorize(): bool
     {
-        return false;
+        return true;
     }
 
     /**
@@ -21,10 +21,11 @@ class CreateTravelTypeRequest extends FormRequest
      *
      * @return array
      */
-    public function rules()
+    public function rules(): array
     {
         return [
-            //
+            'type' => 'required|string|max:255',
+            'svg' => 'required|file|max:1024|mimes:svg'
         ];
     }
 }

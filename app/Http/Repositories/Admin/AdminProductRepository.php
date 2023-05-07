@@ -68,7 +68,7 @@ class AdminProductRepository implements AdminProductInterface
             'discount' => $request->discount,
             'rate' => $request->rate,
             'count' => $request->count,
-            'image' => $image ?? $product->image
+            'image' => $image
         ]);
         Alert::toast('Product Was Updated Successfully', 'success');
         return redirect(route('admin.product.index'));

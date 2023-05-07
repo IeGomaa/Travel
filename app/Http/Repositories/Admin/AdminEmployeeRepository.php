@@ -65,7 +65,7 @@ class AdminEmployeeRepository implements AdminEmployeeInterface
         $image = $service->checkImage($request->image, $employee);
         $employee->update([
             'name' => $request->name,
-            'image' => $image ?? $employee->image,
+            'image' => $image,
             'email' => $request->email,
             'phone' => $request->phone,
             'location' => $request->location,

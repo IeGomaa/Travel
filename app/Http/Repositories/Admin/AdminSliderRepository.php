@@ -62,7 +62,7 @@ class AdminSliderRepository implements AdminSliderInterface
         $slider->update([
             'title' => $request->title,
             'description' => $request->description,
-            'image' => $image ?? $slider->image
+            'image' => $image
         ]);
         Alert::toast('Slider Was Updated Successfully', 'success');
         return redirect(route('admin.slider.index'));
